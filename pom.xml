@@ -11,12 +11,17 @@
     <modules>
         <module>shouguouo4j-common</module>
         <module>shouguouo4j-demo</module>
+        <module>shouguouo4j-spring</module>
     </modules>
 
     <!-- 全局配置 -->
     <properties>
         <java.version>1.8</java.version>
         <lombok.version>1.18.20</lombok.version>
+        <guava.version>30.0-jre</guava.version>
+        <commons.version>3.5</commons.version>
+        <!--        <springboot.version>2.5.2</springboot.version>-->
+        <spring.core.version>5.3.8</spring.core.version>
     </properties>
 
     <!-- 依赖仲裁 仅仲裁版本,不会产生依赖-->
@@ -27,12 +32,31 @@
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
-                <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>com.shouguouo4j</groupId>
                 <artifactId>shouguouo4j-common</artifactId>
                 <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons.version}</version>
+            </dependency>
+            <!--<dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>-->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${spring.core.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -1,0 +1,1 @@
+com.shouguouo.spring.spi.Hi=com.shouguouo.spring.spi.impl.ChineseHi,com.shouguouo.spring.spi.impl.EnglishHi

@@ -1,8 +1,5 @@
 package com.shouguouo.demo.spi;
 
-import java.sql.Driver;
-import java.sql.DriverManager;
-import java.util.Enumeration;
 import java.util.ServiceLoader;
 
 /**
@@ -15,11 +12,6 @@ public class SpiTry {
         ServiceLoader<Hi> loadedHi = ServiceLoader.load(Hi.class);
         for (Hi impl : loadedHi) {
             impl.sayHi();
-        }
-        Enumeration<Driver> loadedDriver = DriverManager.getDrivers();
-        while (loadedDriver.hasMoreElements()) {
-            Driver driver = loadedDriver.nextElement();
-            System.out.println(driver);
         }
     }
 
