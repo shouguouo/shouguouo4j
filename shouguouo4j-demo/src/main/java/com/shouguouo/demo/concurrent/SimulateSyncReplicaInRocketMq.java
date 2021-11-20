@@ -19,20 +19,21 @@ public class SimulateSyncReplicaInRocketMq {
 
     public Runnable runBlocked() {
         return () -> {
-            Consumer<String> sb = System.out::println;
+            Consumer<String> sb = (x) -> System.out.println(Thread.currentThread().getName() + ":" + x);
             // blocked
             try {
                 TimeUnit.SECONDS.sleep(3);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            System.out.println(Thread.currentThread().getName());
             sb.accept("synchronized completed in " + (System.currentTimeMillis() - start) / 1000.0 + "s");
         };
     }
 
     public Runnable runWithCompletableFuture(ThreadPoolExecutor executor) {
         return () -> {
-            Consumer<String> sb = System.out::println;
+            Consumer<String> sb = (x) -> System.out.println(Thread.currentThread().getName() + ":" + x);
             // use CompletableFuture
             CompletableFuture.supplyAsync(() -> {
                 try {
@@ -40,8 +41,9 @@ public class SimulateSyncReplicaInRocketMq {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+                System.out.println(Thread.currentThread().getName());
                 return "CompletableFuture completed in " + (System.currentTimeMillis() - start) / 1000.0 + "s";
-            }).thenAcceptAsync(sb, executor);
+            }, executor).thenAcceptAsync(sb, executor);
         };
     }
 
@@ -60,7 +62,7 @@ public class SimulateSyncReplicaInRocketMq {
         // blocked here because executor's core size is 1
         executor.execute(runWithCompletableFuture(executor));
         // unblocked，CompletableFuture async
-        executor.execute(() -> System.out.println("just run in " + (System.currentTimeMillis() - start) / 1000.0 + "s"));
+        executor.execute(() -> System.out.println(Thread.currentThread().getName() + " just run in " + (System.currentTimeMillis() - start) / 1000.0 + "s"));
 
         // waiting for runWithCompletableFuture completed
         try {
