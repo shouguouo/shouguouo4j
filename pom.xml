@@ -1,153 +1,189 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.shouguouo4j</groupId>
-    <artifactId>shouguouo4j-parent</artifactId>
-    <version>2021-SNAPSHOT</version>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.shouguouo4j</groupId>
+  <artifactId>shouguouo4j-parent</artifactId>
+  <version>2021-SNAPSHOT</version>
 
-    <packaging>pom</packaging>
+  <packaging>pom</packaging>
 
-    <!-- 模块聚合 -->
-    <modules>
-        <module>shouguouo4j-common</module>
-        <module>shouguouo4j-demo</module>
-        <module>shouguouo4j-spring</module>
-    </modules>
+  <!-- 模块聚合 -->
+  <modules>
+    <module>shouguouo4j-common</module>
+    <module>shouguouo4j-demo</module>
+    <module>shouguouo4j-spring</module>
+    <module>shouguouo4j-dubbo</module>
+    <module>shouguouo4j-web</module>
+    <module>shouguouo4j-middleware</module>
+  </modules>
 
-    <!-- 全局配置 -->
-    <properties>
-        <java.version>1.8</java.version>
-        <lombok.version>1.18.20</lombok.version>
-        <guava.version>30.0-jre</guava.version>
-        <commons.version>3.5</commons.version>
-        <!--        <springboot.version>2.5.2</springboot.version>-->
-        <spring.core.version>5.3.8</spring.core.version>
-    </properties>
+  <!-- 全局配置 -->
+  <properties>
+    <java.version>1.8</java.version>
+    <lombok.version>1.18.20</lombok.version>
+    <guava.version>30.0-jre</guava.version>
+    <commons.version>3.5</commons.version>
+    <springboot.version>2.5.4</springboot.version>
+    <spring.version>5.3.8</spring.version>
+    <dubbo.version>3.0.0</dubbo.version>
+    <redisson.version>3.16.3</redisson.version>
+    <curator.version>5.2.0</curator.version>
+  </properties>
 
-    <!-- 依赖仲裁 仅仲裁版本,不会产生依赖-->
-    <dependencyManagement>
-        <dependencies>
-            <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.shouguouo4j</groupId>
-                <artifactId>shouguouo4j-common</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava</artifactId>
-                <version>${guava.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-lang3</artifactId>
-                <version>${commons.version}</version>
-            </dependency>
-            <!--<dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter</artifactId>
-                <version>${springboot.version}</version>
-            </dependency>-->
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-core</artifactId>
-                <version>${spring.core.version}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+  <!-- 依赖仲裁 仅仲裁版本,不会产生依赖-->
+  <dependencyManagement>
+    <dependencies>
+      <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>${lombok.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.shouguouo4j</groupId>
+        <artifactId>shouguouo4j-common</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>${guava.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>${commons.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+        <version>${springboot.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-webmvc</artifactId>
+        <version>${spring.version}</version>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/org.apache.dubbo/dubbo -->
+      <dependency>
+        <groupId>org.apache.dubbo</groupId>
+        <artifactId>dubbo</artifactId>
+        <version>${dubbo.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-test</artifactId>
+        <version>${springboot.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>5.1.47</version>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/org.redisson/redisson -->
+      <dependency>
+        <groupId>org.redisson</groupId>
+        <artifactId>redisson</artifactId>
+        <version>${redisson.version}</version>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/org.apache.curator/curator-recipes -->
+      <dependency>
+        <groupId>org.apache.curator</groupId>
+        <artifactId>curator-recipes</artifactId>
+        <version>${curator.version}</version>
+      </dependency>
 
-    <!-- 构建管理 -->
-    <build>
-        <!-- 插件 -->
-        <plugins>
-            <!-- 编译插件 -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.3</version>
-                <configuration>
-                    <compilerVersion>${java.version}</compilerVersion>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                    <encoding>UTF-8</encoding>
-                    <!-- prevents endPosTable exception for maven compile -->
-                    <useIncrementalCompilation>false</useIncrementalCompilation>
-                </configuration>
-            </plugin>
-            <!-- 打包源码插件,打包完成后会生成一份源码.jar -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>2.4</version>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <!--
-                pom精简插件:
-                将pom.xml压缩为flattened-pom.xml,然后在install和deploy阶段使用flattened-pom.xml替代pom.xml.
-                具体压缩策略如下:
-                1.和构建有关的元素会被删除;
-                2.和开发有关的元素默认会被删除;
-                3.只包含构件的使用者必须的一些信息;
-                4.变量会被解析;
-                5.上级关系会被解析,然后被压缩删除;
-                6.构建时实际使用的profile会被评估,视情况处理;
-                7.由JDK或者OS驱动的profile会被保留,需要时可以动态地控制依赖.
-                更多请查看http://www.mojohaus.org/flatten-maven-plugin/plugin-info.html
-            -->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>flatten-maven-plugin</artifactId>
-                <version>1.0.0</version>
-                <executions>
-                    <execution>
-                        <phase>process-resources</phase>
-                        <goals>
-                            <goal>flatten</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>flatten.clean</id>
-                        <phase>clean</phase>
-                        <goals>
-                            <goal>clean</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-archetype-plugin</artifactId>
-                <version>3.0.1</version>
-            </plugin>
-        </plugins>
-    </build>
+    </dependencies>
+  </dependencyManagement>
 
-    <repositories>
-        <repository>
-            <id>central</id>
-            <name>aliyun maven</name>
-            <url>https://maven.aliyun.com/nexus/content/groups/public/</url>
-            <layout>default</layout>
-            <!-- 是否开启发布版构件下载 -->
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <!-- 是否开启快照版构件下载 -->
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
+  <!-- 构建管理 -->
+  <build>
+    <!-- 插件 -->
+    <plugins>
+      <!-- 编译插件 -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.3</version>
+        <configuration>
+          <compilerVersion>${java.version}</compilerVersion>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+          <encoding>UTF-8</encoding>
+          <!-- prevents endPosTable exception for maven compile -->
+          <useIncrementalCompilation>false</useIncrementalCompilation>
+        </configuration>
+      </plugin>
+      <!-- 打包源码插件,打包完成后会生成一份源码.jar -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>2.4</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <!--
+          pom精简插件:
+          将pom.xml压缩为flattened-pom.xml,然后在install和deploy阶段使用flattened-pom.xml替代pom.xml.
+          具体压缩策略如下:
+          1.和构建有关的元素会被删除;
+          2.和开发有关的元素默认会被删除;
+          3.只包含构件的使用者必须的一些信息;
+          4.变量会被解析;
+          5.上级关系会被解析,然后被压缩删除;
+          6.构建时实际使用的profile会被评估,视情况处理;
+          7.由JDK或者OS驱动的profile会被保留,需要时可以动态地控制依赖.
+          更多请查看http://www.mojohaus.org/flatten-maven-plugin/plugin-info.html
+      -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>flatten-maven-plugin</artifactId>
+        <version>1.0.0</version>
+        <executions>
+          <execution>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>flatten</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>flatten.clean</id>
+            <phase>clean</phase>
+            <goals>
+              <goal>clean</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-archetype-plugin</artifactId>
+        <version>3.0.1</version>
+      </plugin>
+    </plugins>
+  </build>
+
+  <repositories>
+    <repository>
+      <id>central</id>
+      <name>aliyun maven</name>
+      <url>https://maven.aliyun.com/nexus/content/groups/public/</url>
+      <layout>default</layout>
+      <!-- 是否开启发布版构件下载 -->
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <!-- 是否开启快照版构件下载 -->
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
 </project>
