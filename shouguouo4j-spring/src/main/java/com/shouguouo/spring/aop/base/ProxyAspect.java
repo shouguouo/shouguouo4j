@@ -1,4 +1,4 @@
-package com.shouguouo.spring.aop;
+package com.shouguouo.spring.aop.base;
 
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
@@ -17,7 +17,7 @@ public class ProxyAspect {
     /**
      * @see <a href="https://cloud.tencent.com/developer/article/1455539">Spring AOP 中切入点 Pointcut中Expression表达式解析及配置</a>
      */
-    @Pointcut("within(com.shouguouo.spring.aop.*ProxyBean*)")
+    @Pointcut("within(com.shouguouo.spring.aop.base.*ProxyBean*)")
     public void pointCut() {
     }
 

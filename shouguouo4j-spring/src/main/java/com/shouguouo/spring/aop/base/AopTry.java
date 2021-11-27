@@ -1,4 +1,4 @@
-package com.shouguouo.spring.aop;
+package com.shouguouo.spring.aop.base;
 
 import org.springframework.aop.support.AopUtils;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
