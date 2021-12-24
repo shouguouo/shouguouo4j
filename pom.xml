@@ -29,6 +29,8 @@
     <redisson.version>3.16.3</redisson.version>
     <curator.version>5.2.0</curator.version>
     <aspectj.version>1.9.7</aspectj.version>
+    <httpclient.version>4.5.13</httpclient.version>
+    <rocketmq.version>4.9.2</rocketmq.version>
   </properties>
 
   <!-- 依赖仲裁 仅仲裁版本,不会产生依赖-->
@@ -100,6 +102,20 @@
         <groupId>org.aspectj</groupId>
         <artifactId>aspectjweaver</artifactId>
         <version>${aspectj.version}</version>
+      </dependency>
+
+      <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+      <dependency>
+        <groupId>org.apache.httpcomponents</groupId>
+        <artifactId>httpclient</artifactId>
+        <version>${httpclient.version}</version>
+      </dependency>
+
+      <!-- https://mvnrepository.com/artifact/org.apache.rocketmq/rocketmq-client -->
+      <dependency>
+        <groupId>org.apache.rocketmq</groupId>
+        <artifactId>rocketmq-client</artifactId>
+        <version>${rocketmq.version}</version>
       </dependency>
 
     </dependencies>

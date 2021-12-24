@@ -1,7 +1,14 @@
 server:
   tomcat:
     threads:
-      max: 1
+      max: 10
+  port: 8081
 logging:
   level:
-    org.*: debug
+    org.*: info
+spring:
+  rocketmq:
+    namesrvAddr: 127.0.0.1:9876
+    producerGroup: shouguouo4j
+    consumerGroup: shouguouo4j
+    topic: shouguouo4j
