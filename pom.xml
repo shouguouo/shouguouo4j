@@ -27,10 +27,11 @@
     <spring.version>5.3.8</spring.version>
     <dubbo.version>3.0.0</dubbo.version>
     <redisson.version>3.16.3</redisson.version>
-    <curator.version>5.2.0</curator.version>
+    <curator.version>4.2.0</curator.version>
     <aspectj.version>1.9.7</aspectj.version>
     <httpclient.version>4.5.13</httpclient.version>
     <rocketmq.version>4.9.2</rocketmq.version>
+    <zookeeper.version>3.6.0</zookeeper.version>
   </properties>
 
   <!-- 依赖仲裁 仅仲裁版本,不会产生依赖-->
@@ -118,6 +119,16 @@
         <version>${rocketmq.version}</version>
       </dependency>
 
+      <dependency>
+        <groupId>org.apache.curator</groupId>
+        <artifactId>curator-framework</artifactId>
+        <version>${curator.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.curator</groupId>
+        <artifactId>curator-x-discovery</artifactId>
+        <version>${curator.version}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
