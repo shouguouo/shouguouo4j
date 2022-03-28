@@ -29,7 +29,7 @@ public class IOUtils {
             res.add(file);
             return;
         }
-        if (file.isDirectory()) {
+        if (file.isDirectory() && file.listFiles() != null) {
             Arrays.stream(file.listFiles()).forEach(f -> gatherFile(f, res));
         }
     }

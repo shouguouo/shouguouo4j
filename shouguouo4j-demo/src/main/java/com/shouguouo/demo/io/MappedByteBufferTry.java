@@ -7,6 +7,8 @@ import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 
 /**
+ * MappedByteBuffer底层依赖操作系统的mmap系统调用
+ *
  * @author shouguouo
  * @date 2022-03-27 20:53:37
  */
