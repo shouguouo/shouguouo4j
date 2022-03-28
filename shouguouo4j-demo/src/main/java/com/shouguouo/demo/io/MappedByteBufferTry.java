@@ -63,7 +63,11 @@ public class MappedByteBufferTry {
         rw.force();
         System.out.println("Change to R/W buffer");
         showBuffers(ro, rw, cow);
-        // Write to the file through the channel; hit both pages TODO but no effect to cow
+        // Write to the file through the channel; hit both pages
+        // but no effect to cow in this compute
+        // 网上没有明确的资料说明什么情况下，MapMode.PRIVATE时其他进程对文件的修改会反映在PRIVATE的MappedByteBuffer上
+        // 比较靠谱的说明：It is unspecified whether changes made to the file after the mmap() call are visible in the mapped region. ref:https://man7.org/linux/man-pages/man2/mmap.2.html
+        // uname -a Darwin shouguouo.local 21.3.0 Darwin Kernel Version 21.3.0: Wed Jan  5 21:37:58 PST 2022; root:xnu-8019.80.24~20/RELEASE_ARM64_T8101 arm64
         temp.clear();
         temp.put("Channel write ".getBytes());
         temp.flip();
