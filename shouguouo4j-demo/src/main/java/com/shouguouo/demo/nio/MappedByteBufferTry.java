@@ -1,4 +1,4 @@
-package com.shouguouo.demo.io;
+package com.shouguouo.demo.nio;
 
 import java.io.File;
 import java.io.RandomAccessFile;
