@@ -12,7 +12,6 @@ import org.apache.rocketmq.common.consumer.ConsumeFromWhere;
 import org.apache.rocketmq.common.message.MessageExt;
 import org.apache.rocketmq.common.protocol.heartbeat.MessageModel;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -23,7 +22,6 @@ import java.util.List;
  * @author shouguouo
  * @date 2021-12-24 21:12:38
  */
-@Component
 @Slf4j
 public class MQPushConsumer implements MessageListenerConcurrently {
 

@@ -9,7 +9,6 @@ import org.apache.rocketmq.client.producer.SendCallback;
 import org.apache.rocketmq.client.producer.SendResult;
 import org.apache.rocketmq.common.message.Message;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -21,7 +20,6 @@ import java.util.stream.Collectors;
  * @author shouguouo
  * @date 2021-12-24 20:11:37
  */
-@Component
 @Slf4j
 public class MQProducer {
 

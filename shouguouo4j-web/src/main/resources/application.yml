@@ -8,7 +8,12 @@ logging:
     org.*: info
 spring:
   rocketmq:
+    enable: false
     namesrvAddr: 127.0.0.1:9876
     producerGroup: shouguouo4j
     consumerGroup: shouguouo4j
     topic: shouguouo4j
+config:
+  enable: true
+  host: 127.0.0.1
+  port: 8081

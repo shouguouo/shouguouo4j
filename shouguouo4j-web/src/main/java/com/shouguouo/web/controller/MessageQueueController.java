@@ -1,9 +1,11 @@
 package com.shouguouo.web.controller;
 
 import com.shouguouo.web.rocketmq.MQProducer;
+import com.shouguouo.web.rocketmq.MQPushConsumer;
 import com.shouguouo.web.rocketmq.domain.UserIdModifier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +22,7 @@ import java.util.stream.LongStream;
  */
 @RestController
 @RequestMapping("/mq")
+@ConditionalOnBean(value = { MQProducer.class, MQPushConsumer.class })
 public class MessageQueueController {
 
     @Value("${spring.rocketmq.topic}")
