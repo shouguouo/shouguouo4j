@@ -3,8 +3,9 @@ package com.shouguouo.demo.nio;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
+import java.nio.channels.Channels;
 import java.nio.channels.SocketChannel;
-import java.nio.charset.Charset;
+import java.nio.channels.WritableByteChannel;
 
 /**
  * port要有程序监听，可以与ServerSocketChannelTry搭配测试
@@ -33,11 +34,17 @@ public class SocketChannelAsyncConnectTry {
         // Do something with the connected socket
         // The SocketChannel is still nonblocking
         System.out.println("isConnected: " + sc.isConnected());
-        ByteBuffer byteBuffer = ByteBuffer.allocateDirect(24);
+        ByteBuffer byteBuffer = ByteBuffer.allocateDirect(10);
+        WritableByteChannel out = Channels.newChannel(System.out);
         while (sc.read(byteBuffer) == 0) {
             // 等待数据读入
         }
-        System.out.println(Charset.defaultCharset().decode((ByteBuffer) byteBuffer.flip()));
+        do {
+            // 接收到所有数据
+            byteBuffer.flip();
+            out.write(byteBuffer);
+            byteBuffer.clear();
+        } while (sc.read(byteBuffer) > 0);
         sc.close();
     }
 
