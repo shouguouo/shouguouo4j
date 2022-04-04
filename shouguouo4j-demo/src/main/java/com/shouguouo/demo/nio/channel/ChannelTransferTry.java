@@ -1,4 +1,4 @@
-package com.shouguouo.demo.nio;
+package com.shouguouo.demo.nio.channel;
 
 import com.google.common.base.Stopwatch;
 import com.shouguouo.common.util.IOUtils;

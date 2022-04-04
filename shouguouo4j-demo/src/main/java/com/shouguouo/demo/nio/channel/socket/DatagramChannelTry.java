@@ -1,4 +1,4 @@
-package com.shouguouo.demo.nio;
+package com.shouguouo.demo.nio.channel.socket;
 
 import com.google.common.base.Stopwatch;
 import com.google.common.collect.Lists;

@@ -1,4 +1,4 @@
-package com.shouguouo.demo.nio;
+package com.shouguouo.demo.nio.channel;
 
 import java.io.IOException;
 import java.io.RandomAccessFile;

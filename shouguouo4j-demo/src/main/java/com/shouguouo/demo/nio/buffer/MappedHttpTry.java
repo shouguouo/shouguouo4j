@@ -1,4 +1,4 @@
-package com.shouguouo.demo.nio;
+package com.shouguouo.demo.nio.buffer;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

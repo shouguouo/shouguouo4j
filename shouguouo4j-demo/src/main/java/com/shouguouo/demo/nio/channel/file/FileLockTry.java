@@ -1,4 +1,4 @@
-package com.shouguouo.demo.nio;
+package com.shouguouo.demo.nio.channel.file;
 
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
