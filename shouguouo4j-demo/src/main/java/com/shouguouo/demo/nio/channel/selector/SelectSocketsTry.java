@@ -18,24 +18,25 @@ import java.util.Iterator;
  * @author shouguouo
  * @date 2022-04-05 13:11:23
  */
-public class SelectSocketTry {
+public class SelectSocketsTry {
 
     public static int PORT_NUMBER = 1234;
 
     private final ByteBuffer buffer = ByteBuffer.allocateDirect(1024);
 
-    private final WritableByteChannel out = Channels.newChannel(System.out);
+    protected final WritableByteChannel out = Channels.newChannel(System.out);
 
     public static void main(String[] args) throws IOException {
+        new SelectSocketsTry().go(args);
+    }
+
+    public void go(String[] args) throws IOException {
         int port = PORT_NUMBER;
         if (args.length > 0) {
             port = Integer.parseInt(args[0]);
         }
         System.out.println("Listening on port " + port);
-        new SelectSocketTry().go(port);
-    }
 
-    public void go(int port) throws IOException {
         // 选择器
         Selector selector = Selector.open();
         // 通道
@@ -81,28 +82,31 @@ public class SelectSocketTry {
         channel.register(selector, ops);
     }
 
-    private void readFromSocket(SelectionKey key) throws IOException {
+    protected void readFromSocket(SelectionKey key) throws IOException {
         SocketChannel channel = (SocketChannel) key.channel();
-        write(out, "Read From " + channel.getRemoteAddress() + ": ");
+        write(out, Thread.currentThread().getName() + ": Read From " + channel.getRemoteAddress() + ": ");
         int count;
-        buffer.clear();
+        buffer.clear(); // Empty buffer
+        // Loop while data is available; channel is nonblocking
         while ((count = channel.read(buffer)) > 0) {
-            // 准备读取
-            buffer.flip();
+            buffer.flip(); // make buffer readable
+            // Send the data; may not go all at once
             while (buffer.hasRemaining()) {
                 out.write(buffer);
             }
-            buffer.clear();
+            buffer.clear(); // Empty buffer
         }
+        // 客户端关闭也会受到读就绪状态的通知，count为-1
         if (count < 0) {
+            write(out, "closed\r\n");
+            // Close channel on EOF; invalidates the key
             channel.close();
+            return;
         }
-        if (channel.isOpen()) {
-            write(channel, "OK!\r\n");
-        }
+        write(channel, "OK!\r\n");
     }
 
-    private void write(WritableByteChannel channel, String message) throws IOException {
+    public void write(WritableByteChannel channel, String message) throws IOException {
         buffer.clear();
         buffer.put(message.getBytes());
         buffer.flip();
