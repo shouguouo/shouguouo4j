@@ -1,4 +1,4 @@
-package com.shouguouo.demo.nio.channel.selector;
+package com.shouguouo.demo.nio.selector;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
