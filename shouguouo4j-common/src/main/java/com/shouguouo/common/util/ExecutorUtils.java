@@ -23,7 +23,7 @@ public class ExecutorUtils {
             20,
             60,
             TimeUnit.SECONDS,
-            new LinkedBlockingQueue<>(100),
+            new LinkedBlockingQueue<>(1000),
             new ThreadFactory() {
                 private static final String NAME = "shouguouo-thread-pool-%s";
 
@@ -49,4 +49,7 @@ public class ExecutorUtils {
         POOL.shutdown();
     }
 
+    public static boolean isTerminated() {
+        return POOL.isTerminated();
+    }
 }
