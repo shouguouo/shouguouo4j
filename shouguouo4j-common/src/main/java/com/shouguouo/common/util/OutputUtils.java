@@ -29,6 +29,15 @@ public class OutputUtils {
         throwable.printStackTrace(printStream);
     }
 
+    public void println(String message) {
+        System.out.println(message);
+    }
+
+    public void printf(String message, Object... args) {
+        System.out.printf(message, args);
+        System.out.println();
+    }
+
     public enum Level {
         /**
          * 级别
