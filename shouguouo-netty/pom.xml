@@ -21,6 +21,10 @@
       <groupId>io.netty</groupId>
       <artifactId>netty-all</artifactId>
     </dependency>
+    <dependency>
+      <groupId>com.shouguouo4j</groupId>
+      <artifactId>shouguouo4j-common</artifactId>
+    </dependency>
   </dependencies>
 
 </project>
