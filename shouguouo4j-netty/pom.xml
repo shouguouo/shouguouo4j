@@ -9,7 +9,7 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>shouguouo-netty</artifactId>
+  <artifactId>shouguouo4j-netty</artifactId>
 
   <properties>
     <maven.compiler.source>8</maven.compiler.source>

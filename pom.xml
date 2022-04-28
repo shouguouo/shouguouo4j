@@ -15,7 +15,7 @@
     <module>shouguouo4j-dubbo</module>
     <module>shouguouo4j-web</module>
     <module>shouguouo4j-middleware</module>
-    <module>shouguouo-netty</module>
+    <module>shouguouo4j-netty</module>
   </modules>
 
   <!-- 全局配置 -->
