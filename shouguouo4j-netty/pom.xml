@@ -25,6 +25,32 @@
       <groupId>com.shouguouo4j</groupId>
       <artifactId>shouguouo4j-common</artifactId>
     </dependency>
+    <dependency>
+      <groupId>com.google.protobuf</groupId>
+      <artifactId>protobuf-java</artifactId>
+    </dependency>
   </dependencies>
 
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.xolstice.maven.plugins</groupId>
+        <artifactId>protobuf-maven-plugin</artifactId>
+        <version>0.5.0</version>
+        <extensions>true</extensions>
+        <configuration>
+          <!--proto文件路径-->
+          <protoSourceRoot>src/main/resources/protobuf</protoSourceRoot>
+          <!--目标路径-->
+          <outputDirectory>${project.build.sourceDirectory}</outputDirectory>
+          <!--设置是否在生成Java文件之前清空outputDirectory的文件-->
+          <clearOutputDirectory>false</clearOutputDirectory>
+          <!--临时目录-->
+          <temporaryProtoFileDirectory>${project.build.directory}/protoc-temp</temporaryProtoFileDirectory>
+          <!--protoc可执行文件路径-->
+          <protocExecutable>/usr/local/bin/protoc</protocExecutable>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
