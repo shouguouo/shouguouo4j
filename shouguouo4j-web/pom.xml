@@ -34,5 +34,9 @@
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
     </dependency>
+    <dependency>
+      <groupId>com.shouguouo4j</groupId>
+      <artifactId>shouguouo4j-common</artifactId>
+    </dependency>
   </dependencies>
 </project>
