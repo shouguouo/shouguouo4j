@@ -17,6 +17,7 @@
     <module>shouguouo4j-middleware</module>
     <module>shouguouo4j-netty</module>
     <module>shouguouo4j-reactive</module>
+    <module>shouguouo4j-vertx</module>
   </modules>
 
   <!-- 全局配置 -->
