@@ -38,5 +38,9 @@
       <groupId>com.shouguouo4j</groupId>
       <artifactId>shouguouo4j-common</artifactId>
     </dependency>
+    <dependency>
+      <groupId>cn.monitor4all</groupId>
+      <artifactId>log-record-starter</artifactId>
+    </dependency>
   </dependencies>
 </project>
