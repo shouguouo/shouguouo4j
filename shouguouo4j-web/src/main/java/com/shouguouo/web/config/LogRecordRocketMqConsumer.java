@@ -8,7 +8,6 @@ import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
 import org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently;
-import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.common.consumer.ConsumeFromWhere;
 import org.apache.rocketmq.common.message.MessageExt;
 import org.apache.rocketmq.common.protocol.heartbeat.MessageModel;
@@ -37,7 +36,7 @@ public class LogRecordRocketMqConsumer implements MessageListenerConcurrently {
             consumer.subscribe(logRecordProperties.getRocketMqProperties().getTopic(), "*");
             consumer.registerMessageListener(this);
             consumer.start();
-        } catch (MQClientException e) {
+        } catch (Exception e) {
             log.error("logRecord消费者启动失败", e);
         }
     }
